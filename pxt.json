@@ -1,0 +1,19 @@
+{
+    "name": "minibeampixel",
+    "version": "0.7.0",
+    "description": "6x7 WS2812B RGB LED matrix for BBC micro:bit",
+    "license": "MIT",
+    "dependencies": {
+        "core": "*",
+        "neopixel": "github:microsoft/pxt-neopixel#v0.7.6"
+    },
+    "files": [
+        "README.md",
+        "main.ts"
+    ],
+    "public": true,
+    "supportedTargets": [
+        "microbit"
+    ],
+    "preferredEditor": "tsprj"
+}
