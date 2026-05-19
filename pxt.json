@@ -1,6 +1,6 @@
 {
     "name": "minibeampixel",
-    "version": "0.7.0",
+    "version": "0.7.1",
     "description": "6x7 WS2812B RGB LED matrix for BBC micro:bit",
     "license": "MIT",
     "dependencies": {

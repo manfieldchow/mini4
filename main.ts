@@ -80,12 +80,12 @@ namespace minibeam {
      */
     //% blockId="minibeam_connect" block="connect MiniBeam on pin %pin"
     //% pin.defl=DigitalPin.P0
-    //% parts="neopixel"
     //% weight=100 blockGap=8
     export function connect(pin: DigitalPin) {
         strip = neopixel.create(pin, 42, NeoPixelMode.RGB)
         strip.setMatrixWidth(6)
         strip.setBrightness(128)
+        pins.digitalWritePin(pin, 0)
     }
 
     /**
@@ -101,7 +101,6 @@ namespace minibeam {
      * Set one pixel (correct for zigzag PCB wiring).
      */
     //% blockId="minibeam_pixel" block="set pixel x %x y %y to %value"
-    //% parts="neopixel"
     //% x.min=0 x.max=5 y.min=0 y.max=6
     //% weight=90 blockGap=8
     export function setPixel(x: number, y: number, value: MiniBeamColor) {
@@ -119,7 +118,6 @@ namespace minibeam {
      * Set pixel with brightness 0-255.
      */
     //% blockId="minibeam_light" block="light pixel x %x y %y level %level"
-    //% parts="neopixel"
     //% x.min=0 x.max=5 y.min=0 y.max=6
     //% level.min=0 level.max=255 level.defl=255
     //% weight=89 blockGap=8
@@ -146,7 +144,6 @@ namespace minibeam {
      * Send colours to the LEDs.
      */
     //% blockId="minibeam_send" block="send to LEDs"
-    //% parts="neopixel"
     //% weight=88 blockGap=8
     export function sendToLeds() {
         if (!ready()) {
@@ -159,7 +156,6 @@ namespace minibeam {
      * Clear the LED buffer.
      */
     //% blockId="minibeam_wipe" block="wipe matrix"
-    //% parts="neopixel"
     //% weight=87 blockGap=8
     export function wipeMatrix() {
         if (!ready()) {
@@ -172,7 +168,6 @@ namespace minibeam {
      * Fill the matrix and send.
      */
     //% blockId="minibeam_fill" block="fill matrix %value"
-    //% parts="neopixel"
     //% weight=86 blockGap=8
     export function fillMatrix(value: MiniBeamColor) {
         if (!ready()) {
@@ -185,7 +180,6 @@ namespace minibeam {
      * Set brightness 0-255.
      */
     //% blockId="minibeam_bright" block="set brightness %level"
-    //% parts="neopixel"
     //% level.min=0 level.max=255 level.defl=128
     //% weight=85 blockGap=8
     export function setBrightness(level: number) {
@@ -199,7 +193,6 @@ namespace minibeam {
      * Rainbow effect on the matrix.
      */
     //% blockId="minibeam_rainbow" block="show rainbow"
-    //% parts="neopixel"
     //% weight=84 blockGap=8
     export function showRainbow() {
         if (!ready()) {
@@ -209,10 +202,9 @@ namespace minibeam {
     }
 
     /**
-     * Test wiring: light each LED in order.
+     * Test wiring: light each LED in order. Do not put inside forever.
      */
     //% blockId="minibeam_test" block="run wiring test"
-    //% parts="neopixel"
     //% weight=80 blockGap=8
     export function runWiringTest() {
         if (!ready()) {
